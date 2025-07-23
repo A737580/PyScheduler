@@ -1,13 +1,14 @@
+
 import uuid
 from datetime import time
 
 class Timeslot:
     def __init__(self, day_id:str, start:time, end:time, id:str=None):
-        if(id is None):
-            self.id = str(uuid.uuid4())
-            self.day_id = day_id
-            self.start = start
-            self.end = end
+        self.id: str = id if id is not None else str(uuid.uuid4())
+        self.day_id = day_id
+        self.start = start
+        self.end = end
+
             
     @classmethod
     def from_dict(cls, data: dict):
