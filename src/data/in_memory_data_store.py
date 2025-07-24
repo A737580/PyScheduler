@@ -1,6 +1,6 @@
 from typing import List, Union
-from models.day import Day
-from models.timeslot import Timeslot
+from src.models.day import Day
+from src.models.timeslot import Timeslot
 
 SupportedModel = Union[Day, Timeslot]
 

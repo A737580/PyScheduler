@@ -1,4 +1,4 @@
-from core.command_router import CommandRouter
+from src.core.command_router import CommandRouter
 class App:
     def __init__(self, command_router:CommandRouter):
         self.router = command_router

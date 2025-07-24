@@ -1,9 +1,9 @@
-from core.app import App
-from core.command_router import CommandRouter
-from services.data_loading_service import DataLoadingService
-from services.scheduler_management_service import SchedulerManagementService
-from data.in_memory_data_store import InMemoryDataStore
-from handlers.scheduler_handler import SchedulerHandler
+from src.core.app import App
+from src.core.command_router import CommandRouter
+from src.services.data_loading_service import DataLoadingService
+from src.services.scheduler_management_service import SchedulerManagementService
+from src.data.in_memory_data_store import InMemoryDataStore
+from src.handlers.scheduler_handler import SchedulerHandler
 
 
 class ApplicationBuilder:

@@ -1,10 +1,10 @@
 
 import sys
-from core.builder import ApplicationBuilder
-from services.data_loading_service import DataLoadingService
-from services.scheduler_management_service import SchedulerManagementService
-from data.in_memory_data_store import InMemoryDataStore
-from handlers.scheduler_handler import SchedulerHandler
+from src.core.builder import ApplicationBuilder
+from src.services.data_loading_service import DataLoadingService
+from src.services.scheduler_management_service import SchedulerManagementService
+from src.data.in_memory_data_store import InMemoryDataStore
+from src.handlers.scheduler_handler import SchedulerHandler
 
 def main():
     if len(sys.argv) < 2:

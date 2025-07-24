@@ -1,4 +1,4 @@
-from services.scheduler_management_service import SchedulerManagementService
+from src.services.scheduler_management_service import SchedulerManagementService
 
 class SchedulerHandler:
     def __init__(self, scheduler_management_service: SchedulerManagementService):
@@ -18,7 +18,7 @@ class SchedulerHandler:
             return f"Ошибка получения занятых слотов: {e}"
         
         if not busy_timeslots:
-            return(f"Нет занятых слотов для {date_str}.")
+            return str([])
         
         formatted_slots = [(start.strftime("%H:%M"), end.strftime("%H:%M")) for start, end in busy_timeslots]
 
@@ -44,7 +44,7 @@ class SchedulerHandler:
         if not free_timeslots and busy_timeslots:
             return(f"Нет свободных слотов для {date_str}.")
         elif not free_timeslots and not busy_timeslots:
-            return(f"День {date_str} полностью совободен.")
+            return(f"День {date_str} не занесен в базу как занятый.")
 
         formatted_slots = [(start.strftime("%H:%M"), end.strftime("%H:%M")) for start, end in free_timeslots]
 
@@ -78,7 +78,7 @@ class SchedulerHandler:
         except Exception as e:
             return f"Ошибка проверки промежутка времени: {e}"
         if not slot_for_duration:
-            return "Ни один из дней в базе не подошел"
+            return "Ни один из дней в базе не подошел."
         found_date, start_time, end_time = slot_for_duration
         formatted_slot = f"({found_date.isoformat()}, {start_time.strftime('%H:%M')}, {end_time.strftime('%H:%M')})"
 

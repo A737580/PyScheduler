@@ -1,9 +1,9 @@
 
 from typing import List, Tuple, Optional
 from datetime import date, time, datetime, timedelta
-from data.in_memory_data_store import InMemoryDataStore
-from models.day import Day
-from models.timeslot import Timeslot
+from src.data.in_memory_data_store import InMemoryDataStore
+from src.models.day import Day
+from src.models.timeslot import Timeslot
 
 class SchedulerManagementService:
     def __init__(self, data_store: InMemoryDataStore):
@@ -14,7 +14,7 @@ class SchedulerManagementService:
         try:
             target_date = date.fromisoformat(date_str)
         except ValueError:
-            return []
+            raise ValueError(f"Некорректный формат даты: {date_str}")
 
         all_days:List[Day] = self.data_store.get_days()
         all_timeslots:List[Timeslot] = self.data_store.get_timeslots()
